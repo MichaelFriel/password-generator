@@ -100,23 +100,19 @@ function getPasswordOptions() {
       alert("Please enter a number between 8 and 128.");
   }
   var numbers = confirm("Would you like this to include any numbers?");
-  var specialCharacters = confirm("Would you like this to contain any special characters?");
+  var specialistCharacters = confirm("Would you like this to contain any special characters?");
   var uppercase = confirm("Would you like this to contain any uppercase characters?");
   var lowercase = confirm("Would you like this to contain any lowercase characters?");
 
   return {
       length: length,
       numbers: numbers,
-      specialCharacters: specialCharacters,
+      specialistCharacters: specialistCharacters,
       uppercase: uppercase,
       lowercase: lowercase
   };
 
 }
-
-var passwordOptions = getPasswordOptions;
-console.log(passwordOptions)
-
 
 
 
@@ -135,8 +131,8 @@ function generatePassword(userSelections) {
     characters = characters.concat(numbers);
   }
 
-  if (userSelections.specialCharacters) {
-    characters = characters.concat(specialCharacters);
+  if (userSelections.specialistCharacters) {
+    characters = characters.concat(specialistCharacters);
   }
 
   if (userSelections.uppercase) {
@@ -151,8 +147,6 @@ function generatePassword(userSelections) {
 return newPassword;
 }
 
-
-var userSelections = getPasswordOptions(); // This should be your function for getting user input
 
 var newPassword = generatePassword(userSelections);
 console.log("Generated Password:", newPassword);
@@ -170,3 +164,10 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
+
+function writeNewPassword () {
+var userSelections = getPasswordOptions();
+var newPassword = generatePassword(userSelections);
+
+console.log("Generated Password:", newPassword);
+}
