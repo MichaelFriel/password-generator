@@ -116,10 +116,10 @@ function getPasswordOptions() {
 
 
 
-// Function for getting a random element from an array
-function getRandom(arr) {
+// // Function for getting a random element from an array
+// function getRandom(arr) {
 
-}
+// }
 
 // Function to generate password with user input
 function generatePassword(userSelections) {
@@ -128,46 +128,49 @@ function generatePassword(userSelections) {
   var newPassword = ''
 
   if (userSelections.numbers) {
-    characters = characters.concat(numbers);
+    characters = characters.concat(numericCharacters);
   }
 
   if (userSelections.specialistCharacters) {
-    characters = characters.concat(specialistCharacters);
+    characters = characters.concat(specialCharacters);
   }
 
   if (userSelections.uppercase) {
-    characters = characters.concat(uppercase);
+    characters = characters.concat(upperCasedCharacters);
   }
 
   if (userSelections.lowercase) {
-    characters = characters.concat(lowercase);
+    characters = characters.concat(lowerCasedCharacters);
   }
+
+  for (var i = 0; i < userSelections.length; i++) {
+    var randomIndex = Math.floor(Math.random() * characters.length);
+    newPassword += characters[randomIndex];
+}
 
   
 return newPassword;
 }
 
 
-var newPassword = generatePassword(userSelections);
-console.log("Generated Password:", newPassword);
-
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector('#password');
+  var userSelections = getPasswordOptions(); // Get user selections when the button is clicked
+  var newPassword = generatePassword(userSelections); // Generate the password
+  console.log("User Selections:", userSelections);
+  console.log("Generated Password:", newPassword);
 
-  passwordText.value = password;
+  var passwordText = document.querySelector('#password'); // Assuming you have an input field to display the password
+    passwordText.value = newPassword;
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
 
-function writeNewPassword () {
-var userSelections = getPasswordOptions();
-var newPassword = generatePassword(userSelections);
 
-console.log("Generated Password:", newPassword);
-}
+
+
+
