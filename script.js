@@ -88,33 +88,29 @@ var upperCasedCharacters = [
   'Z'
 ];
 
-// window.onload = function() {
-//   let passwordOptions = getPasswordOptions();
-//   console.log(passwordOptions);
-// };
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-  let length = prompt ("How many characters would you like the password to contain?");
-  if (length < 8) {
-    prompt ("The password needs to contain at least 8 characters. Please try again")
+
+  var length;
+  while (true) {
+      length = prompt("How many characters would you like this password to contain?");
+      length = parseInt(length, 10); 
+      if (length >= 8 && length <= 128) break;
+      alert("Please enter a number between 8 and 128.");
   }
-  else {
-  let numbers = confirm ("Would you like this to include any numbers?");
-  let specialCharacters= confirm("Would you like this to contain any special characters?");
-  let uppercase= confirm("Would you like this to contain any uppercase characters?");
-  let lowercase = confirm("Would you like this to contain any lowercase characters?");
-  }
+  var numbers = confirm("Would you like this to include any numbers?");
+  var specialCharacters = confirm("Would you like this to contain any special characters?");
+  var uppercase = confirm("Would you like this to contain any uppercase characters?");
+  var lowercase = confirm("Would you like this to contain any lowercase characters?");
+
   return {
-
-  length: (length + " A big one"),
-  numbers: numbers,
-  specialCharacters: specialCharacters,
-  uppercase: uppercase,
-  lowercase: lowercase,
-
+      length: length,
+      numbers: numbers,
+      specialCharacters: specialCharacters,
+      uppercase: uppercase,
+      lowercase: lowercase
   };
-
 
 }
 
