@@ -120,19 +120,42 @@ console.log(passwordOptions)
 
 
 
-
-
-
-
 // Function for getting a random element from an array
 function getRandom(arr) {
 
 }
 
 // Function to generate password with user input
-function generatePassword() {
+function generatePassword(userSelections) {
 
+  var characters = []
+  var newPassword = ''
+
+  if (userSelections.numbers) {
+    characters = characters.concat(numbers);
+  }
+
+  if (userSelections.specialCharacters) {
+    characters = characters.concat(specialCharacters);
+  }
+
+  if (userSelections.uppercase) {
+    characters = characters.concat(uppercase);
+  }
+
+  if (userSelections.lowercase) {
+    characters = characters.concat(lowercase);
+  }
+
+  
+return newPassword;
 }
+
+
+var userSelections = getPasswordOptions(); // This should be your function for getting user input
+
+var newPassword = generatePassword(userSelections);
+console.log("Generated Password:", newPassword);
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
