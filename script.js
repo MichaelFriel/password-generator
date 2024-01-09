@@ -120,6 +120,31 @@ function generatePassword(userSelections) {
   var characters = []
   var newPassword = ''
 
+  // Include at least one character from each array
+
+  var selectedArrays = [];
+
+  if (userSelections.numbers) {
+    selectedArrays.push(numericCharacters);
+  }
+
+  if (userSelections.specialistCharacters) {
+    selectedArrays.push(specialCharacters);
+  }
+
+  if (userSelections.uppercase) {
+    selectedArrays.push(upperCasedCharacters);
+  }
+
+  if (userSelections.lowercase) {
+    selectedArrays.push(lowerCasedCharacters)
+  }
+
+  if (selectedArrays.length === 0) {
+    alert("Please try again, ensuring that you select at least one character type.");
+    return '';
+  }
+
   if (userSelections.numbers) {
     characters = characters.concat(numericCharacters);
   }
@@ -136,10 +161,7 @@ function generatePassword(userSelections) {
     characters = characters.concat(lowerCasedCharacters);
   }
 
-  if (characters.length === 0) {
-    alert("Please try again, ensuring that you select at least one character type.");
-    return '';
-}
+  
 
   for (var i = 0; i < userSelections.length; i++) {
     var randomIndex = Math.floor(Math.random() * characters.length);
