@@ -162,6 +162,8 @@ function writePassword() {
   console.log("Generated Password:", newPassword);
 
   var passwordText = document.querySelector('#password'); 
+
+  passwordText.value = newPassword;
 }
 
 // Add event listener to generate button
