@@ -143,6 +143,11 @@ function generatePassword(userSelections) {
     characters = characters.concat(lowerCasedCharacters);
   }
 
+  if (characters.length === 0) {
+    alert("Please try again, ensuring that you select at least one character type.");
+    return '';
+}
+
   for (var i = 0; i < userSelections.length; i++) {
     var randomIndex = Math.floor(Math.random() * characters.length);
     newPassword += characters[randomIndex];
