@@ -145,6 +145,8 @@ function generatePassword(userSelections) {
     return '';
   }
 
+  console.log(selectedArrays)
+
   if (userSelections.numbers) {
     characters = characters.concat(numericCharacters);
   }
@@ -161,9 +163,14 @@ function generatePassword(userSelections) {
     characters = characters.concat(lowerCasedCharacters);
   }
 
-  
+  for (var i = 0; i < selectedArrays.length; i++) {
+    var array = selectedArrays[i];
+    var randomIndex = Math.floor(Math.random() * array.length);
+    newPassword +=array[randomIndex];
+  }
 
-  for (var i = 0; i < userSelections.length; i++) {
+
+  for (var j = newPassword.length; j < userSelections.length; j++) {
     var randomIndex = Math.floor(Math.random() * characters.length);
     newPassword += characters[randomIndex];
 }
