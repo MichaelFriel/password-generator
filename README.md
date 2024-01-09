@@ -18,14 +18,14 @@ Once the user clicks the Generate Password CTA, they will be prompted to provide
 ## Installation
 To review the portfolio, please follow this URL: https://michaelfriel.github.io/password-generator/
 
-The code is available to be cloned from the Bootstrap-Portfolio repository, using gut commands. To access this, please follow this URL: https://github.com/MichaelFriel/password-generator
+The code is available to be cloned from the password-generator repository, using git commands. To access this, please follow this URL: https://github.com/MichaelFriel/password-generator
 
 ## Usage
 This application is fairly intuitive, with step by step usage guide as follows:
 
 1. Click 'Generate Password' CTA to initialise the prompts.
 2. Input desired number of characters. If this is not between 8 and 128, additional alert will ask that you re-input your figure.
-3. Choose what character types you would like to be included. In this context, 'cancel' means 'do not include'. If you have not chosen any character types, an alert will inform you that you need to begin the process again and include at least one.
+3. Choose what character types you would like to include. In this context, 'cancel' means 'do not include'. If you have not chosen any character types, an alert will inform you that you need to begin the process again and include at least one.
 4. Your password will be displayed in the text area.
 
 ![Image showing the character input prompt](images/character-limit.png)
