@@ -114,13 +114,6 @@ function getPasswordOptions() {
 
 }
 
-
-
-// // Function for getting a random element from an array
-// function getRandom(arr) {
-
-// }
-
 // Function to generate password with user input
 function generatePassword(userSelections) {
 
@@ -163,13 +156,12 @@ var generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
-  var userSelections = getPasswordOptions(); // Get user selections when the button is clicked
-  var newPassword = generatePassword(userSelections); // Generate the password
+  var userSelections = getPasswordOptions(); 
+  var newPassword = generatePassword(userSelections); 
   console.log("User Selections:", userSelections);
   console.log("Generated Password:", newPassword);
 
-  var passwordText = document.querySelector('#password'); // Assuming you have an input field to display the password
-    passwordText.value = newPassword;
+  var passwordText = document.querySelector('#password'); 
 }
 
 // Add event listener to generate button
